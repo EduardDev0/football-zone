@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Football Zone</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background-color: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #181818;
+            text-align: center;
+            padding: 30px;
+        }
+
+        header h1 {
+            font-size: 45px;
+            margin: 0;
+        }
+
+        header p {
+            color: #cccccc;
+        }
+
+        nav {
+            background-color: #00a85a;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .noticias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .noticia {
+            background-color: #1d1d1d;
+            width: 280px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .noticia h2 {
+            color: #00e57a;
+        }
+
+        .noticia p {
+            color: #dddddd;
+            line-height: 1.5;
+        }
+
+        .detalle {
+            display: none;
+            border-top: 1px solid #444;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+
+        button {
+            background-color: #00a85a;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #00c96b;
+        }
+
+        footer {
+            background-color: #181818;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            color: #aaaaaa;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <h1>⚽ FOOTBALL ZONE</h1>
+
+    <p>Todo sobre los gigantes del fútbol europeo</p>
+
+</header>
+
+
+<nav>
+
+    <a href="#">Inicio</a>
+    <a href="#">Noticias</a>
+    <a href="#">Champions</a>
+    <a href="#">Premier League</a>
+    <a href="#">LaLiga</a>
+
+</nav>
+
+
+<h1 class="titulo">🔥 Últimas noticias</h1>
+
+
+<section class="noticias">
+
+
+    <!-- BARCELONA -->
+
+    <div class="noticia">
+
+        <h2>🔵🔴 FC Barcelona</h2>
+
+        <p>
+            Noticias del Barcelona, sus jugadores,
+            partidos y mercado de fichajes.
+        </p>
+
+        <button onclick="mostrar('barca', this)">
+            Leer más
+        </button>
+          
+         
+
+        <div id="barca" class="detalle">
+
+            <p>
+                Aquí podrás ver noticias sobre los próximos
+                partidos del Barcelona, resultados, fichajes,
+                lesiones y declaraciones de jugadores.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- REAL MADRID -->
+
+    <div class="noticia">
+
+        <h2>⚪ Real Madrid</h2>
+
+        <p>
+            Toda la actualidad del Real Madrid
+            en España y Europa.
+        </p>
+
+        <button onclick="mostrar('madrid', this)">
+            Leer más
+        </button>
+
+        <div id="madrid" class="detalle">
+
+            <p>
+                En esta sección aparecerán noticias sobre
+                partidos, Champions League, fichajes,
+                jugadores y resultados del Real Madrid.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PSG -->
+
+    <div class="noticia">
+
+        <h2>🔵🔴 PSG</h2>
+
+        <p>
+            Noticias y novedades del Paris Saint-Germain.
+        </p>
+
+        <button onclick="mostrar('psg' this)">
+            Leer más
+        </button>
+
+        <div id="psg" class="detalle">
+
+            <p>
+                Aquí podrás ver información sobre
+                partidos del PSG, Ligue 1, Champions,
+                jugadores y mercado de fichajes.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LIVERPOOL -->
+
+    <div class="noticia">
+
+        <h2>🔴 Liverpool</h2>
+
+        <p>
+            Actualidad de Liverpool y la Premier League.
+        </p>
+
+        <button onclick="mostrar('liverpool' this)">
+            Leer más
+        </button>
+
+        <div id="liverpool" class="detalle">
+
+            <p>
+                Noticias sobre Liverpool, sus próximos
+                encuentros, resultados, jugadores
+                y competiciones europeas.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MANCHESTER CITY -->
+
+    <div class="noticia">
+
+        <h2>🔵 Manchester City</h2>
+
+        <p>
+            Las últimas novedades del Manchester City.
+        </p>
+
+        <button onclick="mostrar('city' this)">
+            Leer más
+        </button>
+
+        <div id="city" class="detalle">
+
+            <p>
+                Aquí aparecerán noticias del Manchester City,
+                Premier League, Champions League,
+                resultados y jugadores.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MANCHESTER UNITED -->
+
+    <div class="noticia">
+
+        <h2>🔴 Manchester United</h2>
+
+        <p>
+            Noticias de los Red Devils y la Premier League.
+        </p>
+
+        <button onclick="mostrar('united' this)">
+            Leer más
+        </button>
+
+        <div id="united" class="detalle">
+
+            <p>
+                Información sobre Manchester United,
+                sus partidos, posibles fichajes,
+                jugadores y resultados.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ARSENAL -->
+
+    <div class="noticia">
+
+        <h2>🔴 Arsenal</h2>
+
+        <p>
+            Toda la actualidad de los Gunners.
+        </p>
+
+        <button onclick="mostrar('arsenal' this)">
+            Leer más
+        </button>
+
+        <div id="arsenal" class="detalle">
+
+            <p>
+                Aquí podrás ver noticias sobre
+                Arsenal, Premier League, Champions,
+                jugadores y próximos partidos.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- BAYERN -->
+
+    <div class="noticia">
+
+        <h2>🔴 Bayern Munich</h2>
+
+        <p>
+            Noticias del gigante alemán.
+        </p>
+
+        <button onclick="mostrar('bayern' this)">
+            Leer más
+        </button>
+
+        <div id="bayern" class="detalle">
+
+            <p>
+                Información sobre Bayern Munich,
+                Bundesliga, Champions League,
+                fichajes y resultados.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHELSEA -->
+
+    <div class="noticia">
+
+        <h2>🔵 Chelsea</h2>
+
+        <p>
+            Noticias del Chelsea y el fútbol inglés.
+        </p>
+
+        <button onclick="mostrar('chelsea' this)">
+            Leer más
+        </button>
+
+        <div id="chelsea" class="detalle">
+
+            <p>
+                Aquí podrás ver noticias del Chelsea,
+                jugadores, partidos, fichajes
+                y competiciones europeas.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- JUVENTUS -->
+
+    <div class="noticia">
+
+        <h2>⚪⚫ Juventus</h2>
+
+        <p>
+            Actualidad de uno de los grandes de Italia.
+        </p>
+
+        <button onclick="mostrar('juventus' this)">
+            Leer más
+        </button>
+
+        <div id="juventus" class="detalle">
+
+            <p>
+                Noticias sobre Juventus, Serie A,
+                jugadores, fichajes y encuentros
+                internacionales.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- AC MILAN -->
+
+    <div class="noticia">
+
+        <h2>🔴⚫ AC Milan</h2>
+
+        <p>
+            Noticias del histórico club italiano.
+        </p>
+
+        <button onclick="mostrar('milan' this)">
+            Leer más
+        </button>
+
+        <div id="milan" class="detalle">
+
+            <p>
+                Aquí podrás ver información del AC Milan,
+                Serie A, Champions League,
+                resultados y jugadores.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- INTER -->
+
+    <div class="noticia">
+
+        <h2>🔵⚫ Inter</h2>
+
+        <p>
+            Toda la actualidad del Inter de Milán.
+        </p>
+
+        <button onclick="mostrar('inter' this)">
+            Leer más
+        </button>
+
+        <div id="inter" class="detalle">
+
+            <p>
+                Noticias sobre Inter,
+                partidos de Serie A, Champions,
+                jugadores y mercado de fichajes.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    <p>
+        ⚽ Football Zone | Creado por Eduard
+    </p>
+
+</footer>
+
+
+<script>
+
+function mostrar(id, boton) {
+
+    const noticia = document.getElementById(id);
+
+    if (noticia.style.display === "block") {
+
+        noticia.style.display = "none";
+        boton.innerText = "Leer más";
+
+    } else {
+
+        noticia.style.display = "block";
+        boton.innerText = "Leer menos";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
