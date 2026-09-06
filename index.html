@@ -2,524 +2,1217 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Football Zone | Noticias de fútbol y grandes clubes</title>
-<meta name="description" content="Football Zone: noticias, novedades y contenido sobre los grandes clubes del fútbol mundial.">
-   <meta name="robots" content="index, follow">
+    <title>Football Zone 2.0</title>
+
+    <meta
+        name="description"
+        content="Football Zone: partidos, resultados, ligas, noticias y grandes clubes del fútbol mundial."
+    >
+
     <style>
 
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
-            background-color: #101010;
-            color: white;
-            font-family: Arial, sans-serif;
+            padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0d0f;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* HEADER */
+
         header {
-            background-color: #181818;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.65),
+                    rgba(0,0,0,0.85)
+                ),
+                #111;
+
             text-align: center;
-            padding: 30px;
+            padding: 55px 20px;
         }
 
         header h1 {
-            font-size: 45px;
-            margin: 0;
+            font-size: 55px;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        header h1 span {
+            color: #00e57a;
         }
 
         header p {
             color: #cccccc;
+            margin-top: 12px;
+            font-size: 19px;
         }
 
+        /* NAV */
+
         nav {
-            background-color: #00a85a;
-            padding: 15px;
-            text-align: center;
+            background: #00a85a;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 5px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            padding: 8px;
         }
 
         nav a {
             color: white;
+
             text-decoration: none;
-            margin: 15px;
+
             font-weight: bold;
+
+            padding: 13px 17px;
+
+            border-radius: 8px;
+
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: rgba(0,0,0,0.20);
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 70px 25px;
+
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+        }
+
+        .hero h2 span {
+            color: #00e57a;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: 20px auto;
+
+            color: #bbbbbb;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+        .hero-botones {
+            margin-top: 30px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .boton {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #00a85a;
+
+            color: white;
+
+            padding: 14px 25px;
+
+            border-radius: 9px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .boton:hover {
+            background: #00cf6f;
+
+            transform: translateY(-2px);
+        }
+
+        .boton-secundario {
+            background: #24282c;
+        }
+
+        /* SECCIONES */
+
+        section {
+            padding: 55px 25px;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+
+            margin: auto;
         }
 
         .titulo {
             text-align: center;
-            margin-top: 35px;
+
+            font-size: 32px;
+
+            margin-bottom: 35px;
         }
 
-        .noticias {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .noticia {
-            background-color: #1d1d1d;
-            width: 280px;
-            padding: 20px;
-            border-radius: 12px;
-        }
-        
-        .noticia img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .noticia h2 {
+        .titulo span {
             color: #00e57a;
         }
 
-        .noticia p {
-            color: #dddddd;
-            line-height: 1.5;
+        /* PARTIDOS */
+
+        .partidos-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 20px;
         }
 
-        .detalle {
-            display: none;
-            border-top: 1px solid #444;
-            margin-top: 15px;
-            padding-top: 15px;
+        .partido {
+            background: #171a1d;
+
+            border: 1px solid #262a2e;
+
+            border-radius: 14px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            transition: 0.2s;
         }
 
-        button {
-            background-color: #00a85a;
-            color: white;
-            border: none;
-            padding: 11px 18px;
-            border-radius: 6px;
-            cursor: pointer;
+        .partido:hover {
+            transform: translateY(-5px);
+
+            border-color: #00a85a;
+        }
+
+        .partido .liga {
+            color: #00e57a;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        .equipos {
+            font-size: 18px;
+
             font-weight: bold;
         }
 
-        button:hover {
-            background-color: #00c96b;
+        .vs {
+            color: #888;
+
+            margin: 10px;
         }
 
-        footer {
-            background-color: #181818;
+        .estado {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            background: #25292d;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            color: #cccccc;
+
+            font-size: 13px;
+        }
+
+        /* COMPETICIONES */
+
+        .competiciones {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(190px, 1fr));
+
+            gap: 18px;
+        }
+
+        .competicion {
+            background: #171a1d;
+
+            padding: 28px 15px;
+
+            border-radius: 14px;
+
             text-align: center;
-            padding: 25px;
+
+            text-decoration: none;
+
+            color: white;
+
+            border: 1px solid #262a2e;
+
+            transition: 0.2s;
+        }
+
+        .competicion:hover {
+            transform: translateY(-5px);
+
+            border-color: #00e57a;
+
+            background: #1b1f22;
+        }
+
+        .competicion .icono {
+            font-size: 35px;
+
+            margin-bottom: 12px;
+        }
+
+        /* NOTICIAS */
+
+        .noticias-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(270px, 1fr));
+
+            gap: 22px;
+        }
+
+        .noticia {
+            background: #171a1d;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border: 1px solid #262a2e;
+
+            transition: 0.2s;
+        }
+
+        .noticia:hover {
+            transform: translateY(-5px);
+        }
+
+        .noticia img {
+            width: 100%;
+
+            height: 190px;
+
+            object-fit: cover;
+        }
+
+        .noticia-contenido {
+            padding: 22px;
+        }
+
+        .noticia h3 {
+            color: #00e57a;
+
+            margin-bottom: 10px;
+        }
+
+        .noticia p {
+            color: #cccccc;
+
+            line-height: 1.5;
+        }
+
+        /* CLUBES */
+
+        .clubes-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
+        }
+
+        .club {
+            background: #171a1d;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            border: 1px solid #262a2e;
+
+            transition: 0.2s;
+        }
+
+        .club:hover {
+            transform: translateY(-5px);
+
+            border-color: #00a85a;
+        }
+
+        .club img {
+            width: 100%;
+
+            height: 170px;
+
+            object-fit: cover;
+        }
+
+        .club-info {
+            padding: 20px;
+        }
+
+        .club h3 {
+            color: #00e57a;
+
+            margin-bottom: 10px;
+        }
+
+        .club p {
+            color: #bbbbbb;
+
+            line-height: 1.5;
+        }
+
+        /* PRÓXIMAMENTE */
+
+        .proximamente {
+            background:
+                linear-gradient(
+                    135deg,
+                    #00a85a,
+                    #006f3c
+                );
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            padding: 45px 25px;
+        }
+
+        .proximamente h2 {
+            font-size: 32px;
+
+            margin-bottom: 15px;
+        }
+
+        .proximamente p {
+            max-width: 700px;
+
+            margin: auto;
+
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111315;
+
+            text-align: center;
+
+            color: #888;
+
+            padding: 35px 20px;
+
             margin-top: 30px;
-            color: #aaaaaa;
+        }
+
+        footer strong {
+            color: #00e57a;
+        }
+
+        /* MÓVIL */
+
+        @media(max-width: 600px) {
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h2 {
+                font-size: 31px;
+            }
+
+            nav a {
+                font-size: 13px;
+
+                padding: 10px 9px;
+            }
+
+            section {
+                padding: 45px 18px;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
 
 
 <header>
 
-    <h1>⚽ FOOTBALL ZONE</h1>
+    <h1>
+        ⚽ FOOTBALL <span>ZONE</span>
+    </h1>
 
-    <p>Todo sobre los gigantes del fútbol europeo</p>
+    <p>
+        Todo el fútbol. En un solo lugar.
+    </p>
 
 </header>
 
 
 <nav>
 
-    <a href="#">Inicio</a>
-    <a href="#">Noticias</a>
-    <a href="#">Champions</a>
-    <a href="#">Premier League</a>
-    <a href="laliga.html">LaLiga</a>
+    <a href="#inicio">Inicio</a>
+
+    <a href="#partidos">Partidos</a>
+
+    <a href="#competiciones">Ligas</a>
+
+    <a href="#noticias">Noticias</a>
+
+    <a href="#clubes">Clubes</a>
 
 </nav>
 
 
-<h1 class="titulo">🔥 Últimas noticias</h1>
+<main>
 
 
-<section class="noticias">
+<!-- HERO -->
 
+<section id="inicio" class="hero">
 
-    <!-- BARCELONA -->
+    <h2>
+        Bienvenido a
+        <span>Football Zone 2.0</span>
+    </h2>
 
-    <div class="noticia">
-        
-        <img src="barcelona.jpg" alt="FC Barcelona">
-  
-        <h2>🔵🔴 FC Barcelona</h2>
+    <p>
+        Partidos, resultados, noticias,
+        competiciones y los grandes clubes
+        del fútbol mundial.
+    </p>
 
-        <p>
-            Noticias del Barcelona, sus jugadores,
-            partidos y mercado de fichajes.
-        </p>
+    <div class="hero-botones">
 
-        <button onclick="mostrar('barca', this)">
-            Leer más
-        </button>
-          
-         
+        <a href="#partidos" class="boton">
+            ⚽ Ver partidos
+        </a>
 
-        <div id="barca" class="detalle">
-
-            <p>
-                Aquí podrás ver noticias sobre los próximos
-                partidos del Barcelona, resultados, fichajes,
-                lesiones y declaraciones de jugadores.
-            </p>
-
-        </div>
+        <a
+            href="#competiciones"
+            class="boton boton-secundario"
+        >
+            🏆 Ver ligas
+        </a>
 
     </div>
-
-
-    <!-- REAL MADRID -->
-
-    <div class="noticia">
-        <img src="madrid.jpg" alt="Real Madrid">
-        <h2>⚪ Real Madrid</h2>
-
-        <p>
-            Toda la actualidad del Real Madrid
-            en España y Europa.
-        </p>
-
-        <button onclick="mostrar('madrid', this)">
-            Leer más
-        </button>
-
-        <div id="madrid" class="detalle">
-
-            <p>
-                En esta sección aparecerán noticias sobre
-                partidos, Champions League, fichajes,
-                jugadores y resultados del Real Madrid.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- PSG -->
-
-    <div class="noticia">
-        <img src="psg.jpg" alt="Paris Saint-Germain">
-        <h2>🔵🔴 PSG</h2>
-
-        <p>
-            Noticias y novedades del Paris Saint-Germain.
-        </p>
-
-        <button onclick="mostrar('psg', this)">
-            Leer más
-        </button>
-
-        <div id="psg" class="detalle">
-
-            <p>
-                Aquí podrás ver información sobre
-                partidos del PSG, Ligue 1, Champions,
-                jugadores y mercado de fichajes.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- LIVERPOOL -->
-
-    <div class="noticia">
-        <img src="liverpool.jpg" alt="Liverpool">
-        <h2>🔴 Liverpool</h2>
-
-        <p>
-            Actualidad de Liverpool y la Premier League.
-        </p>
-
-        <button onclick="mostrar('liverpool', this)">
-            Leer más
-        </button>
-
-        <div id="liverpool" class="detalle">
-
-            <p>
-                Noticias sobre Liverpool, sus próximos
-                encuentros, resultados, jugadores
-                y competiciones europeas.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- MANCHESTER CITY -->
-
-    <div class="noticia">
-        <img src="city.jpg" alt="Manchester City">
-        <h2>🔵 Manchester City</h2>
-
-        <p>
-            Las últimas novedades del Manchester City.
-        </p>
-
-        <button onclick="mostrar('city', this)">
-            Leer más
-        </button>
-
-        <div id="city" class="detalle">
-
-            <p>
-                Aquí aparecerán noticias del Manchester City,
-                Premier League, Champions League,
-                resultados y jugadores.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- MANCHESTER UNITED -->
-
-    <div class="noticia">
-        <img src="united.jpg" alt="Manchester United">
-        <h2>🔴 Manchester United</h2>
-
-        <p>
-            Noticias de los Red Devils y la Premier League.
-        </p>
-
-        <button onclick="mostrar('united', this)">
-            Leer más
-        </button>
-
-        <div id="united" class="detalle">
-
-            <p>
-                Información sobre Manchester United,
-                sus partidos, posibles fichajes,
-                jugadores y resultados.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ARSENAL -->
-
-    <div class="noticia">
-        <img src="arsenal.jpg" alt="Arsenal">
-        <h2>🔴 Arsenal</h2>
-
-        <p>
-            Toda la actualidad de los Gunners.
-        </p>
-
-        <button onclick="mostrar('arsenal', this)">
-            Leer más
-        </button>
-
-        <div id="arsenal" class="detalle">
-
-            <p>
-                Aquí podrás ver noticias sobre
-                Arsenal, Premier League, Champions,
-                jugadores y próximos partidos.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- BAYERN -->
-
-    <div class="noticia">
-        <img src="bayern.jpg" alt="Bayern Munich">
-        <h2>🔴 Bayern Munich</h2>
-
-        <p>
-            Noticias del gigante alemán.
-        </p>
-
-        <button onclick="mostrar('bayern', this)">
-            Leer más
-        </button>
-
-        <div id="bayern" class="detalle">
-
-            <p>
-                Información sobre Bayern Munich,
-                Bundesliga, Champions League,
-                fichajes y resultados.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- CHELSEA -->
-
-    <div class="noticia">
-        <img src="chelsea.jpg" alt="Chelsea">
-        <h2>🔵 Chelsea</h2>
-
-        <p>
-            Noticias del Chelsea y el fútbol inglés.
-        </p>
-
-        <button onclick="mostrar('chelsea', this)">
-            Leer más
-        </button>
-
-        <div id="chelsea" class="detalle">
-
-            <p>
-                Aquí podrás ver noticias del Chelsea,
-                jugadores, partidos, fichajes
-                y competiciones europeas.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- JUVENTUS -->
-
-    <div class="noticia">
-        <img src="juventus.jpg" alt="Juventus">
-        <h2>⚪⚫ Juventus</h2>
-
-        <p>
-            Actualidad de uno de los grandes de Italia.
-        </p>
-
-        <button onclick="mostrar('juventus', this)">
-            Leer más
-        </button>
-
-        <div id="juventus" class="detalle">
-
-            <p>
-                Noticias sobre Juventus, Serie A,
-                jugadores, fichajes y encuentros
-                internacionales.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- AC MILAN -->
-
-    <div class="noticia">
-        <img src="milan.jpg" alt="AC Milan">
-        <h2>🔴⚫ AC Milan</h2>
-
-        <p>
-            Noticias del histórico club italiano.
-        </p>
-
-        <button onclick="mostrar('milan', this)">
-            Leer más
-        </button>
-
-        <div id="milan" class="detalle">
-
-            <p>
-                Aquí podrás ver información del AC Milan,
-                Serie A, Champions League,
-                resultados y jugadores.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- INTER -->
-
-    <div class="noticia">
-        <img src="inter.jpg" alt="Inter Milan">
-        <h2>🔵⚫ Inter</h2>
-
-        <p>
-            Toda la actualidad del Inter de Milán.
-        </p>
-
-        <button onclick="mostrar('inter', this)">
-            Leer más
-        </button>
-
-        <div id="inter" class="detalle">
-
-            <p>
-                Noticias sobre Inter,
-                partidos de Serie A, Champions,
-                jugadores y mercado de fichajes.
-            </p>
-
-        </div>
-
-    </div>
-
 
 </section>
 
 
+
+<!-- PARTIDOS -->
+
+<section id="partidos">
+
+<div class="contenedor">
+
+    <h2 class="titulo">
+        🔥 Partidos de <span>hoy</span>
+    </h2>
+
+
+    <div class="partidos-grid">
+
+
+        <div class="partido">
+
+            <div class="liga">
+                PARTIDOS
+            </div>
+
+            <div class="equipos">
+                Próximamente
+            </div>
+
+            <div class="vs">
+                ⚽
+            </div>
+
+            <div class="equipos">
+                Resultados en vivo
+            </div>
+
+            <span class="estado">
+                Estamos preparando esta función
+            </span>
+
+        </div>
+
+
+        <div class="partido">
+
+            <div class="liga">
+                RESULTADOS
+            </div>
+
+            <div class="equipos">
+                Últimos partidos
+            </div>
+
+            <div class="vs">
+                ⚽
+            </div>
+
+            <div class="equipos">
+                Marcadores
+            </div>
+
+            <span class="estado">
+                Próximamente
+            </span>
+
+        </div>
+
+
+        <div class="partido">
+
+            <div class="liga">
+                PRÓXIMOS PARTIDOS
+            </div>
+
+            <div class="equipos">
+                Calendario
+            </div>
+
+            <div class="vs">
+                📅
+            </div>
+
+            <div class="equipos">
+                Horarios
+            </div>
+
+            <span class="estado">
+                Próximamente
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- COMPETICIONES -->
+
+<section id="competiciones">
+
+<div class="contenedor">
+
+
+<h2 class="titulo">
+    🏆 Grandes <span>competiciones</span>
+</h2>
+
+
+<div class="competiciones">
+
+
+<a href="laliga.html" class="competicion">
+
+    <div class="icono">
+        🇪🇸
+    </div>
+
+    <strong>
+        LaLiga
+    </strong>
+
+</a>
+
+
+
+<div class="competicion">
+
+    <div class="icono">
+        🏴
+    </div>
+
+    <strong>
+        Premier League
+    </strong>
+
+</div>
+
+
+
+<div class="competicion">
+
+    <div class="icono">
+        🇮🇹
+    </div>
+
+    <strong>
+        Serie A
+    </strong>
+
+</div>
+
+
+
+<div class="competicion">
+
+    <div class="icono">
+        🇩🇪
+    </div>
+
+    <strong>
+        Bundesliga
+    </strong>
+
+</div>
+
+
+
+<div class="competicion">
+
+    <div class="icono">
+        🇫🇷
+    </div>
+
+    <strong>
+        Ligue 1
+    </strong>
+
+</div>
+
+
+
+<div class="competicion">
+
+    <div class="icono">
+        ⭐
+    </div>
+
+    <strong>
+        Champions League
+    </strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- NOTICIAS -->
+
+<section id="noticias">
+
+<div class="contenedor">
+
+
+<h2 class="titulo">
+    📰 Últimas <span>noticias</span>
+</h2>
+
+
+<div class="noticias-grid">
+
+
+<div class="noticia">
+
+    <div class="noticia-contenido">
+
+        <h3>
+            ⚽ Football Zone Noticias
+        </h3>
+
+        <p>
+            Muy pronto aquí aparecerán
+            las principales noticias
+            del fútbol mundial.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="noticia">
+
+    <div class="noticia-contenido">
+
+        <h3>
+            🔄 Mercado de fichajes
+        </h3>
+
+        <p>
+            Rumores, fichajes,
+            renovaciones y movimientos
+            de los grandes clubes.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="noticia">
+
+    <div class="noticia-contenido">
+
+        <h3>
+            🏆 Grandes competiciones
+        </h3>
+
+        <p>
+            Noticias de LaLiga,
+            Premier League,
+            Champions y más.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CLUBES -->
+
+<section id="clubes">
+
+<div class="contenedor">
+
+
+<h2 class="titulo">
+    ⭐ Clubes <span>destacados</span>
+</h2>
+
+
+<div class="clubes-grid">
+
+
+<div class="club">
+
+<img
+    src="barcelona.jpg"
+    alt="FC Barcelona"
+>
+
+<div class="club-info">
+
+<h3>
+    🔵🔴 FC Barcelona
+</h3>
+
+<p>
+    Noticias, partidos,
+    jugadores y actualidad
+    del FC Barcelona.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="madrid.jpg"
+    alt="Real Madrid"
+>
+
+<div class="club-info">
+
+<h3>
+    ⚪ Real Madrid
+</h3>
+
+<p>
+    Toda la actualidad
+    del Real Madrid
+    en España y Europa.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="psg.jpg"
+    alt="PSG"
+>
+
+<div class="club-info">
+
+<h3>
+    🔵🔴 PSG
+</h3>
+
+<p>
+    Noticias del Paris
+    Saint-Germain y
+    sus grandes estrellas.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="liverpool.jpg"
+    alt="Liverpool"
+>
+
+<div class="club-info">
+
+<h3>
+    🔴 Liverpool
+</h3>
+
+<p>
+    Actualidad del Liverpool
+    y la Premier League.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="city.jpg"
+    alt="Manchester City"
+>
+
+<div class="club-info">
+
+<h3>
+    🔵 Manchester City
+</h3>
+
+<p>
+    Partidos, jugadores
+    y noticias del City.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="united.jpg"
+    alt="Manchester United"
+>
+
+<div class="club-info">
+
+<h3>
+    🔴 Manchester United
+</h3>
+
+<p>
+    Toda la actualidad
+    de los Red Devils.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="arsenal.jpg"
+    alt="Arsenal"
+>
+
+<div class="club-info">
+
+<h3>
+    🔴 Arsenal
+</h3>
+
+<p>
+    Noticias y actualidad
+    de los Gunners.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="bayern.jpg"
+    alt="Bayern Munich"
+>
+
+<div class="club-info">
+
+<h3>
+    🔴 Bayern Munich
+</h3>
+
+<p>
+    Bundesliga, Champions
+    y actualidad del Bayern.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="chelsea.jpg"
+    alt="Chelsea"
+>
+
+<div class="club-info">
+
+<h3>
+    🔵 Chelsea
+</h3>
+
+<p>
+    Noticias del Chelsea
+    y el fútbol inglés.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="juventus.jpg"
+    alt="Juventus"
+>
+
+<div class="club-info">
+
+<h3>
+    ⚪⚫ Juventus
+</h3>
+
+<p>
+    Actualidad del gigante
+    italiano.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="milan.jpg"
+    alt="AC Milan"
+>
+
+<div class="club-info">
+
+<h3>
+    🔴⚫ AC Milan
+</h3>
+
+<p>
+    Noticias del histórico
+    club de Milán.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="club">
+
+<img
+    src="inter.jpg"
+    alt="Inter Milan"
+>
+
+<div class="club-info">
+
+<h3>
+    🔵⚫ Inter
+</h3>
+
+<p>
+    Toda la actualidad
+    del Inter de Milán.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FUTURAS FUNCIONES -->
+
+<section>
+
+<div class="contenedor">
+
+<div class="proximamente">
+
+<h2>
+    🚀 Football Zone está creciendo
+</h2>
+
+<p>
+    Próximamente conectaremos
+    resultados en vivo,
+    próximos partidos,
+    noticias reales,
+    tablas de posiciones
+    y muchas funciones más.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
 <footer>
 
-    <p>
-        ⚽ Football Zone | Creado por EduardDev0
-    </p>
+<p>
+
+⚽ <strong>Football Zone 2.0</strong>
+
+<br><br>
+
+Creado por EduardDev0
+
+</p>
 
 </footer>
 
 
-<script>
-
-function mostrar(id, boton) {
-
-    const noticia = document.getElementById(id);
-
-    if (noticia.style.display === "block") {
-
-        noticia.style.display = "none";
-        boton.innerText = "Leer más";
-
-    } else {
-
-        noticia.style.display = "block";
-        boton.innerText = "Leer menos";
-
-    }
-
-}
-
-</script>
-<api-sports-widget data-type="games"
-  data-refresh="60"
-  data-league="140"
-></api-sports-widget>
-
-<!-- Configuration -->
-<api-sports-widget data-type="config"
-  data-key="5076e860b3b684fdc055691d0432ea69"
-  data-sport="football"
-  data-lang="es"
-  data-theme="white"
-  data-timezone="America/New_York"
-  data-show-errors="true"
-></api-sports-widget>
-<script type="module" src="https://widgets.api-sports.io/3.1.0/widgets.js"></script>
 </body>
 
 </html>
